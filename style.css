@@ -1,31 +1,49 @@
 .cards {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.cards>li {
-    background-color: lightblue;
-    width: 300px;
-    height: 240px;
-    list-style: none;
-    text-align: center;
-    align-content: center;
-    font-size: 45px;
+.cards > li {
+  background-color: lightblue;
+  width: 300px;
+  height: 240px;
+  list-style: none;
+  text-align: center;
+  align-content: center;
+  font-size: 45px;
 }
 
 .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
-.pagination>li{
-    width: 42px;
-    height: 42px;
-    align-content: center;
-    text-align: center;
-    list-style: none;
-    cursor: pointer;
-    background-color: lightgreen;
-    font-size: 20px;
-    
+
+.pagination::after,
+.pagination::before {
+  content: "...";
+  width: 42px;
+  height: 42px;
+  align-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.pagination:not(.left-ellipsis)::before,
+.pagination:not(.right-ellipsis)::after {
+  visibility: hidden;
+}
+.pagination > li {
+  width: 42px;
+  height: 42px;
+  align-content: center;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  background-color: lightgreen;
+  font-size: 20px;
+  user-select: none;
+}
+.pagination > .active {
+  background-color: orange;
 }
