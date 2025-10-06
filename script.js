@@ -23,7 +23,8 @@ function initPagination() {
   pageList.append(...buttons);
   updatePageList();
   showCurrentPageCardsOnly();
-  pageList.onclick = handlePageSwitch;
+  pageList.nextElementSibling.dataset.index = pageCount - 1;
+  pageList.parentElement.onclick = handlePageSwitch;
 }
 
 function showCurrentPageCardsOnly() {
@@ -36,7 +37,7 @@ function showCurrentPageCardsOnly() {
 }
 
 function handlePageSwitch(e) {
-  const btn = e.target.closest("li");
+  const btn = e.target.closest("li, button");
   if (!btn) return;
 
   currentPage = btn.dataset.index;
@@ -65,4 +66,7 @@ function updatePageList() {
 
   pageList.classList.toggle('left-ellipsis', min > 0);
   pageList.classList.toggle('right-ellipsis', max < pageList.children.length);
+  setTimeout(() => {
+    pageList.scrollIntoView();
+  }, 0);
 }

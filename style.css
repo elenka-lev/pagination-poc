@@ -13,10 +13,19 @@
   font-size: 45px;
 }
 
+.page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
+  padding: 0;
 }
 
 .pagination::after,
